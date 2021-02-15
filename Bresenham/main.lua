@@ -39,9 +39,9 @@ function bresenham(x1, y1, x2, y2)
     while (x <= x2) do
         love.graphics.points(x,y) -- Draw current pixel
         x = x + 1 -- Increment x
-        if (dec < 0) then -- the pixel is closer to the current pixel
+        if (dec < 0) then -- the pixel is closer to the actual point
             dec = dec + 2 * dy 
-        else              -- the pixel is farther than the current pixel
+        else              -- the pixel is farther than the actual point
             dec = dec + (2*dy) - (2*dx) 
             y = y + 1 -- Increment y
         end
