@@ -170,7 +170,7 @@ function Bresenham(x1, y1, x2, y2)
             if decY < 0 then
                 decY = decY + 2 * dx1
             else
-                if ( (dx < 0 and dy < 0) or (dx > 0 and dy > 0) ) then
+                if ( (d x < 0 and dy < 0) or (dx > 0 and dy > 0) ) then
                     x = x + 1
                 else
                     x = x - 1
