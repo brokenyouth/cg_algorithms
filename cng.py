@@ -14,19 +14,19 @@
 #    Copyright (c) 2011 Christian Nguyen
 #    Copyright (c) 2012-2014 Christian Nguyen, Joseph Razik
 #
-#    This program is free software; you can redistribute it 
-#    and/or modify it under the terms of the GNU General 
-#    Public License as published by the Free Software 
+#    This program is free software; you can redistribute it
+#    and/or modify it under the terms of the GNU General
+#    Public License as published by the Free Software
 #    Foundation (version 2 of the License).
 #
-#    This program is distributed in the hope that it will 
-#    be useful, but WITHOUT ANY WARRANTY; without even the 
-#    implied warranty of MERCHANTABILITY or FITNESS FOR A 
-#    PARTICULAR PURPOSE.  See the GNU General Public License 
+#    This program is distributed in the hope that it will
+#    be useful, but WITHOUT ANY WARRANTY; without even the
+#    implied warranty of MERCHANTABILITY or FITNESS FOR A
+#    PARTICULAR PURPOSE.  See the GNU General Public License
 #    for more details.
 #
-#    For a copy of the GNU General Public License, write to the 
-#    Free Software Foundation, Inc., 675 Mass Ave, Cambridge, 
+#    For a copy of the GNU General Public License, write to the
+#    Free Software Foundation, Inc., 675 Mass Ave, Cambridge,
 #    MA 02139, USA.
 #
 ###############################################################
@@ -39,7 +39,7 @@
 # utilisation
 # - chargement de l'image en mémoire: img = Image.open(mon_fichier)
 # - conversion en "ImageTk": imgtk = ImageTk.PhotoImage(image = img,master=mon_canvas)"
-# - chargement dans le Canvas. 
+# - chargement dans le Canvas.
 
 ###############################################################
 # prise en compte de la version de Python
@@ -172,6 +172,7 @@ def init_window(pnom='', pla=None, pha=None, color='white'):
     # zone graphique
     canv = Canvas(width = la, height = ha, bg = color)
     canv.pack()
+    return root , canv
 
 # information sur l'ecran
 def get_screen_width():
@@ -287,7 +288,8 @@ def rectangle(px1, py1, px2, py2, pep=1):
     """
     # changement de repère
     py1,py2=ha-py1,ha-py2
-    id = canv.create_rectangle(px1, py1, px2, py2, outline=__ccol, width=pep)
+    id = canv.create_print(ox, oy)
+    rectangle(px1, py1, px2, py2, outline=__ccol, width=pep)
     return id
 
 ##### affichage d'un rectangle plein
@@ -489,7 +491,7 @@ def idle_dead():
 
 ##### chargement du fichier image et retour de son handle
 # modifie le 08/01/2014 par Christian Nguyen
-def image(name, width=None, height=None): 
+def image(name, width=None, height=None):
     """
     retourne une image a placer, avec changement de taille si demande.
     ATTENTION : la reference a l'image doit etre *globale*.
